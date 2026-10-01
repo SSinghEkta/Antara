@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Who Gets to See Themselves? | School Texts Archive</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       BASIC SETUP
+    ========================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #FFF8EE;
+      color: #202124;
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    /* =========================================
+       COLOURS
+    ========================================= */
+
+    :root {
+      --cream: #FFF8EE;
+      --white: #FFFFFF;
+      --ink: #202124;
+
+      --orange: #E76F51;
+      --blue: #3155D9;
+      --green: #5E9F6E;
+      --pink: #E982A6;
+      --purple: #8667C8;
+      --yellow: #F3C969;
+
+      --light-blue: #E9EEFF;
+      --light-pink: #FBE8EF;
+      --light-green: #EAF4EA;
+      --light-orange: #FCE8E2;
+      --light-purple: #EEE9FA;
+      --light-yellow: #FFF4CE;
+
+      --border: #202124;
+    }
+
+    /* =========================================
+       TYPOGRAPHY
+    ========================================= */
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.05;
+    }
+
+    .handwritten {
+      font-family: "Caveat", cursive;
+    }
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 18px 5%;
+
+      background: rgba(255, 248, 238, 0.95);
+      backdrop-filter: blur(10px);
+
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      display: inline-block;
+      padding: 3px 7px;
+      background: var(--yellow);
+      transform: rotate(-2deg);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 3px;
+      background: var(--orange);
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-button {
+      display: none;
+      border: 2px solid var(--ink);
+      background: var(--white);
+      padding: 7px 10px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    /* =========================================
+       GENERAL SECTIONS
+    ========================================= */
+
+    section {
+      padding: 90px 5%;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 12px;
+
+      background: var(--ink);
+      color: white;
+
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      transform: rotate(-1deg);
+    }
+
+    .section-heading {
+      max-width: 850px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      letter-spacing: -2px;
+    }
+
+    .section-heading p {
+      max-width: 650px;
+      margin-top: 18px;
+      font-size: 1.05rem;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      position: relative;
+      min-height: 88vh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 90px 8%;
+
+      border-bottom: 2px solid var(--ink);
+
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 950px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+
+      margin-bottom: 25px;
+      padding: 8px 14px;
+
+      background: var(--pink);
+
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      transform: rotate(-2deg);
+      border: 2px solid var(--ink);
+    }
+
+    .hero h1 {
+      font-size: clamp(4rem, 10vw, 9rem);
+      letter-spacing: -7px;
+      max-width: 1050px;
+    }
+
+    .hero h1 .highlight {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+
+    .hero h1 .highlight::after {
+      content: "";
+      position: absolute;
+      left: -2%;
+      right: -2%;
+      bottom: 8px;
+      height: 22px;
+
+      background: var(--yellow);
+      z-index: -1;
+
+      transform: rotate(-1deg);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin-top: 30px;
+
+      font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .button {
+      display: inline-block;
+
+      padding: 14px 22px;
+
+      border: 2px solid var(--ink);
+
+      font-weight: 700;
+
+      transition: 0.2s;
+    }
+
+    .button-primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .button-secondary {
+      background: white;
+    }
+
+    .button:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+
+    .hero-note {
+      position: absolute;
+
+      padding: 14px 18px;
+
+      background: white;
+
+      border: 2px solid var(--ink);
+
+      font-family: "Caveat", cursive;
+      font-size: 1.4rem;
+
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .note-one {
+      right: 9%;
+      top: 20%;
+      transform: rotate(7deg);
+    }
+
+    .note-two {
+      right: 5%;
+      bottom: 22%;
+      background: var(--green);
+      transform: rotate(-5deg);
+    }
+
+    .note-three {
+      left: 5%;
+      bottom: 7%;
+      background: var(--yellow);
+      transform: rotate(4deg);
+    }
+
+    /* =========================================
+       INTRO
+    ========================================= */
+
+    .intro {
+      background: var(--blue);
+      color: white;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .intro h2 {
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      letter-spacing: -3px;
+    }
+
+    .intro-text {
+      font-size: 1.15rem;
+    }
+
+    .intro-text p + p {
+      margin-top: 20px;
+    }
+
+    .big-question {
+      margin-top: 35px;
+      padding: 25px;
+
+      background: var(--yellow);
+      color: var(--ink);
+
+      border: 2px solid var(--ink);
+
+      font-family: "Caveat", cursive;
+      font-size: 2rem;
+
+      transform: rotate(1deg);
+    }
+
+    /* =========================================
+       ARCHIVE STATS
+    ========================================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 60px;
+    }
+
+    .stat-card {
+      padding: 25px;
+      border: 2px solid var(--ink);
+      background: white;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .stat-card:nth-child(1) {
+      background: var(--light-orange);
+    }
+
+    .stat-card:nth-child(2) {
+      background: var(--light-blue);
+    }
+
+    .stat-card:nth-child(3) {
+      background: var(--light-green);
+    }
+
+    .stat-card:nth-child(4) {
+      background: var(--light-pink);
+    }
+
+    .stat-number {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* =========================================
+       FILTER AREA
+    ========================================= */
+
+    .filter-box {
+      padding: 25px;
+
+      background: white;
+
+      border: 2px solid var(--ink);
+      box-shadow: 7px 7px 0 var(--ink);
+
+      margin-bottom: 50px;
+    }
+
+    .filter-title {
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .filters select,
+    .search-box input {
+      width: 100%;
+
+      padding: 12px;
+
+      background: var(--cream);
+
+      border: 2px solid var(--ink);
+
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-box {
+      margin-top: 15px;
+    }
+
+    .search-box input {
+      background: white;
+    }
+
+    /* =========================================
+       TEXT CARDS
+    ========================================= */
+
+    .archive-count {
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .text-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .text-card {
+      position: relative;
+
+      padding: 28px;
+
+      min-height: 330px;
+
+      border: 2px solid var(--ink);
+
+      background: white;
+
+      transition: 0.25s;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text-card:hover {
+      transform: translateY(-7px) rotate(-0.5deg);
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+
+    .text-card:nth-child(3n + 1) {
+      background: var(--light-orange);
+    }
+
+    .text-card:nth-child(3n + 2) {
+      background: var(--light-blue);
+    }
+
+    .text-card:nth-child(3n + 3) {
+      background: var(--light-green);
+    }
+
+    .card-tag {
+      align-self: flex-start;
+
+      padding: 5px 9px;
+
+      background: var(--ink);
+      color: white;
+
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .text-card h3 {
+      margin-top: 22px;
+      font-size: 1.65rem;
+    }
+
+    .text-card p {
+      margin-top: 12px;
+      font-size: 0.95rem;
+    }
+
+    .card-meta {
+      margin-top: auto;
+      padding-top: 20px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .meta {
+      padding: 5px 8px;
+
+      background: white;
+
+      border: 1px solid var(--ink);
+
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    /* =========================================
+       THEMES
+    ========================================= */
+
+    .themes {
+      background: #202124;
+      color: white;
+    }
+
+    .themes .section-label {
+      background: white;
+      color: var(--ink);
+    }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .theme-card {
+      min-height: 180px;
+
+      padding: 25px;
+
+      border: 2px solid white;
+
+      color: var(--ink);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      transition: 0.2s;
+    }
+
+    .theme-card:hover {
+      transform: rotate(-2deg) scale(1.03);
+    }
+
+    .theme-card h3 {
+      font-size: 1.7rem;
+    }
+
+    .theme-card span {
+      font-family: "Caveat", cursive;
+      font-size: 1.2rem;
+    }
+
+    .theme-pink {
+      background: var(--pink);
+    }
+
+    .theme-blue {
+      background: var(--blue);
+      color: white;
+    }
+
+    .theme-orange {
+      background: var(--orange);
+    }
+
+    .theme-green {
+      background: var(--green);
+    }
+
+    .theme-purple {
+      background: var(--purple);
+      color: white;
+    }
+
+    .theme-yellow {
+      background: var(--yellow);
+    }
+
+    /* =========================================
+       WHO IS SEEN
+    ========================================= */
+
+    .seen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .seen-box {
+      padding: 35px;
+
+      border: 2px solid var(--ink);
+      box-shadow: 7px 7px 0 var(--ink);
+
+      background: white;
+    }
+
+    .seen-box:first-child {
+      background: var(--light-green);
+    }
+
+    .seen-box:last-child {
+      background: var(--light-pink);
+    }
+
+    .seen-box h3 {
+      font-size: 2.3rem;
+      margin-bottom: 25px;
+    }
+
+    .seen-list {
+      list-style: none;
+    }
+
+    .seen-list li {
+      padding: 14px 0;
+      border-top: 1px solid var(--ink);
+      font-weight: 600;
+    }
+
+    .seen-list li::before {
+      content: "→";
+      margin-right: 10px;
+    }
+
+    .small-note {
+      margin-top: 25px;
+      font-family: "Caveat", cursive;
+      font-size: 1.35rem;
+    }
+
+    /* =========================================
+       MAP
+    ========================================= */
+
+    .map-section {
+      background: var(--yellow);
+    }
+
+    .map-placeholder {
+      min-height: 430px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+
+      background: var(--cream);
+
+      border: 2px solid var(--ink);
+      box-shadow: 8px 8px 0 var(--ink);
+
+      overflow: hidden;
+    }
+
+    .map-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 25px;
+
+      border: 2px dashed var(--ink);
+
+      opacity: 0.35;
+    }
+
+    .india-word {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(5rem, 15vw, 13rem);
+      font-weight: 700;
+      letter-spacing: -8px;
+      transform: rotate(-5deg);
+    }
+
+    .map-note {
+      position: absolute;
+      right: 7%;
+      top: 15%;
+
+      background: var(--pink);
+
+      padding: 15px;
+
+      border: 2px solid var(--ink);
+
+      font-family: "Caveat", cursive;
+      font-size: 1.5rem;
+
+      transform: rotate(5deg);
+    }
+
+    /* =========================================
+       BIG QUESTION
+    ========================================= */
+
+    .question-section {
+      padding: 130px 8%;
+
+      background: var(--pink);
+
+      text-align: center;
+    }
+
+    .question-section h2 {
+      max-width: 1000px;
+      margin: auto;
+
+      font-size: clamp(3rem, 7vw, 7rem);
+
+      letter-spacing: -5px;
+    }
+
+    .question-section p {
+      max-width: 650px;
+      margin: 30px auto 0;
+
+      font-size: 1.15rem;
+    }
+
+    /* =========================================
+       STORIES
+    ========================================= */
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .story-card {
+      padding: 30px;
+
+      border: 2px solid var(--ink);
+
+      min-height: 250px;
+
+      background: white;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    .story-card:nth-child(1) {
+      background: var(--light-purple);
+    }
+
+    .story-card:nth-child(2) {
+      background: var(--light-yellow);
+    }
+
+    .story-card:nth-child(3) {
+      background: var(--light-orange);
+    }
+
+    .story-card .story-number {
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .story-card h3 {
+      font-size: 1.7rem;
+      margin-top: 25px;
+    }
+
+    .story-card a {
+      margin-top: 25px;
+      font-weight: 700;
+    }
+
+    /* =========================================
+       ABOUT / METHOD
+    ========================================= */
+
+    .method {
+      background: var(--light-blue);
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .method h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .method p + p {
+      margin-top: 18px;
+    }
+
+    .method-list {
+      margin-top: 25px;
+      list-style: none;
+    }
+
+    .method-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--ink);
+      font-weight: 600;
+    }
+
+    .method-list li::before {
+      content: "✦";
+      margin-right: 10px;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      padding: 55px 5%;
+
+      background: var(--ink);
+      color: white;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      max-width: 450px;
+      color: #ddd;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a:hover {
+      color: var(--yellow);
+    }
+
+    .copyright {
+      margin-top: 50px;
+      padding-top: 20px;
+
+      border-top: 1px solid #555;
+
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 67px;
+        left: 0;
+        right: 0;
+
+        padding: 25px;
+
+        background: var(--cream);
+
+        border-bottom: 2px solid var(--ink);
+
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 6%;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.5rem, 15vw, 6rem);
+        letter-spacing: -4px;
+      }
+
+      .hero-note {
+        display: none;
+      }
+
+      .intro-grid,
+      .method-grid,
+      .seen-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .filters {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .text-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .theme-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 65px 5%;
+      }
+
+      .hero {
+        padding: 65px 5%;
+      }
+
+      .hero h1 {
+        font-size: 3.7rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        text-align: center;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat-card {
+        padding: 18px;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .filters {
+        grid-template-columns: 1fr;
+      }
+
+      .text-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .theme-card {
+        min-height: 150px;
+        padding: 18px;
+      }
+
+      .theme-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .seen-box {
+        padding: 25px;
+      }
+
+      .question-section h2 {
+        letter-spacing: -3px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+       NAVIGATION
+  ========================================= -->
+
+  <nav>
+
+    <a href="#" class="logo">
+      <span>THE ARCHIVE</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#explore">Explore</a>
+      <a href="#themes">Themes</a>
+      <a href="#map">Map</a>
+      <a href="#seen">Who Is Seen?</a>
+      <a href="#about">About</a>
+    </div>
+
+    <button class="menu-button" onclick="toggleMenu()">
+      ☰
+    </button>
+
+  </nav>
+
+
+  <!-- =========================================
+       HERO
+  ========================================= -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        AN ARCHIVE OF SCHOOL TEXTS IN INDIA
+      </div>
+
+      <h1>
+        WHO GETS TO
+        <span class="highlight">SEE THEMSELVES?</span>
+      </h1>
+
+      <p class="hero-description">
+        A digital archive exploring the people, places, identities,
+        experiences and possibilities represented in school texts taught
+        to students across India.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#explore" class="button button-primary">
+          Explore the Archive →
+        </a>
+
+        <a href="#about" class="button button-secondary">
+          Understand the Project
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-note note-one">
+      WHO IS HERE?
+    </div>
+
+    <div class="hero-note note-two">
+      LOOK CLOSER.
+    </div>
+
+    <div class="hero-note note-three">
+      DID YOU NOTICE?
+    </div>
+
+  </header>
+
+
+  <!-- =========================================
+       INTRODUCTION
+  ========================================= -->
+
+  <section class="intro" id="about">
+
+    <div class="intro-grid">
+
+      <div>
+
+        <div class="section-label">
+          WHY THIS ARCHIVE?
+        </div>
+
+        <h2>
+          Reading the texts that teach India to its children.
+        </h2>
+
+      </div>
+
+      <div class="intro-text">
+
+        <p>
+          School textbooks do more than teach language, literature,
+          history or social science. They also show students what kinds
+          of people, lives, places and futures matter.
+        </p>
+
+        <p>
+          This archive brings together texts taught to students in
+          Classes 8–10 across different Indian states, boards and
+          languages, and asks what we can learn from the worlds these
+          texts create.
+        </p>
+
+        <div class="big-question">
+          What happens when a child sees themselves in what they read —
+          and what happens when they don't?
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       ARCHIVE
+  ========================================= -->
+
+  <section id="explore">
+
+    <div class="section-heading">
+
+      <div class="section-label">
+        EXPLORE
+      </div>
+
+      <h2>
+        What's being taught?
+      </h2>
+
+      <p>
+        Search and explore individual stories, poems, chapters and
+        texts from school curricula.
+      </p>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+      <div class="stat-card">
+        <div class="stat-number">08–10</div>
+        <div class="stat-label">Classes</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">06</div>
+        <div class="stat-label">Sample texts</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">08</div>
+        <div class="stat-label">Themes</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Questions to ask</div>
+      </div>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filter-box">
+
+      <div class="filter-title">
+        FIND A TEXT
+      </div>
+
+      <div class="filters">
+
+        <select id="classFilter" onchange="filterCards()">
+          <option value="">All Classes</option>
+          <option value="class 8">Class 8</option>
+          <option value="class 9">Class 9</option>
+          <option value="class 10">Class 10</option>
+        </select>
+
+        <select id="boardFilter" onchange="filterCards()">
+          <option value="">All Boards</option>
+          <option value="ncert">NCERT</option>
+          <option value="state board">State Board</option>
+        </select>
+
+        <select id="languageFilter" onchange="filterCards()">
+          <option value="">All Languages</option>
+          <option value="english">English</option>
+          <option value="hindi">Hindi</option>
+          <option value="regional">Regional</option>
+        </select>
+
+        <select id="subjectFilter" onchange="filterCards()">
+          <option value="">All Subjects</option>
+          <option value="english">English</option>
+          <option value="social science">Social Science</option>
+          <option value="literature">Literature</option>
+        </select>
+
+        <select id="stateFilter" onchange="filterCards()">
+          <option value="">All States</option>
+          <option value="telangana">Telangana</option>
+          <option value="odisha">Odisha</option>
+          <option value="delhi">Delhi</option>
+          <option value="chhattisgarh">Chhattisgarh</option>
+        </select>
+
+      </div>
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search texts, themes, people, places..."
+          onkeyup="filterCards()"
+        >
+
+      </div>
+
+    </div>
+
+
+    <div class="archive-count" id="archiveCount">
+      Showing 6 texts
+    </div>
+
+
+    <!-- TEXT CARDS -->
+
+    <div class="text-grid" id="textGrid">
+
+
+      <article
+        class="text-card"
+        data-search="a story of childhood childhood family identity class 8 ncert english literature telangana"
+      >
+
+        <span class="card-tag">
+          TEXT 01
+        </span>
+
+        <h3>
+          A Story of Childhood
+        </h3>
+
+        <p>
+          What does childhood look like in the stories students are
+          asked to read? Who gets to experience childhood in particular
+          ways?
+        </p>
+
+        <div class="card-meta">
+          <span class="meta">Class 8</span>
+          <span class="meta">Childhood</span>
+          <span class="meta">Family</span>
+          <span class="meta">Identity</span>
+        </div>
+
+      </article>
+
+
+      <article
+        class="text-card"
+        data-search="work labour class poverty class 9 ncert english social science odisha"
+      >
+
+        <span class="card-tag">
+          TEXT 02
+        </span>
+
+        <h3>
+          Work & Labour
+        </h3>
+
+        <p>
+          How are working people represented? What kinds of work become
+          visible and which forms of labour remain in the background?
+        </p>
+
+        <div class="card-meta">
+          <span class="meta">Class 9</span>
+          <span class="meta">Labour</span>
+          <span class="meta">Class</span>
+          <span class="meta">Poverty</span>
+        </div>
+
+      </article>
+
+
+      <article
+        class="text-card"
+        data-search="women gender identity class 10 ncert english literature delhi"
+      >
+
+        <span class="card-tag">
+          TEXT 03
+        </span>
+
+        <h3>
+          Women & Gender
+        </h3>
+
+        <p>
+          How are women and gender roles presented? What kinds of
+          choices, ambitions and identities become imaginable?
+        </p>
+
+        <div class="card-meta">
+          <span class="meta">Class 10</span>
+          <span class="meta">Gender</span>
+          <span class="meta">Identity</span>
+        </div>
+
+      </article>
+
+
+      <article
+        class="text-card"
+        data-search="village city place rural urban class 9 state board english social science chhattisgarh"
+      >
+
+        <span class="card-tag">
+          TEXT 04
+        </span>
+
+        <h3>
+          Village / City
+        </h3>
+
+        <p>
+          How do textbooks divide India into rural and urban worlds?
+          What kinds of places become associated with opportunity?
+        </p>
+
+        <div class="card-meta">
+          <span class="meta">Class 9</span>
+          <span class="meta">Place</span>
+          <span class="meta">Rural</span>
+          <span class="meta">Urban</span>
+        </div>
+
+      </article>
+
+
+      <article
+        class="text-card"
+        data-search="education aspiration class 10 ncert english literature telangana"
+      >
+
+        <span class="card-tag">
+          TEXT 05
+        </span>
+
+        <h3>
+          Education & Aspiration
+        </h3>
+
+        <p>
+          Who is encouraged to dream? How do texts connect education
+          with mobility, success and the future?
+        </p>
+
+        <div class="card-meta">
+          <span class="meta">Class 10</span>
+          <span class="meta">Education</span>
+          <span class="meta">Aspiration</span>
+        </div>
+
+      </article>
+
+
+      <article
+        class="text-card"
+        data-search="language belonging migration class 8 state board regional odisha"
+      >
+
+        <span class="card-tag">
+          TEXT 06
+        </span>
+
+        <h3>
+          Language & Belonging
+        </h3>
+
+        <p>
+          What happens when language becomes connected to home,
+          migration, identity and belonging?
+        </p>
+
+        <div class="card-meta">
+          <span class="meta">Class 8</span>
+          <span class="meta">Language</span>
+          <span class="meta">Migration</span>
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       THEMES
+  ========================================= -->
+
+  <section class="themes" id="themes">
+
+    <div class="section-heading">
+
+      <div class="section-label">
+        LOOKING ACROSS TEXTS
+      </div>
+
+      <h2>
+        What keeps appearing?
+      </h2>
+
+      <p>
+        Themes help us look beyond individual chapters and notice
+        patterns across textbooks.
+      </p>
+
+    </div>
+
+
+    <div class="theme-grid">
+
+      <div class="theme-card theme-pink">
+        <h3>Identity</h3>
+        <span>Who am I?</span>
+      </div>
+
+      <div class="theme-card theme-blue">
+        <h3>Education</h3>
+        <span>What can learning change?</span>
+      </div>
+
+      <div class="theme-card theme-orange">
+        <h3>Work & Labour</h3>
+        <span>Who works?</span>
+      </div>
+
+      <div class="theme-card theme-green">
+        <h3>Environment</h3>
+        <span>Where do we live?</span>
+      </div>
+
+      <div class="theme-card theme-purple">
+        <h3>Aspiration</h3>
+        <span>Who gets to dream?</span>
+      </div>
+
+      <div class="theme-card theme-yellow">
+        <h3>Family</h3>
+        <span>What is a family?</span>
+      </div>
+
+      <div class="theme-card theme-pink">
+        <h3>Place & Belonging</h3>
+        <span>Where do I belong?</span>
+      </div>
+
+      <div class="theme-card theme-blue">
+        <h3>Childhood</h3>
+        <span>What does childhood mean?</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       WHO IS SEEN
+  ========================================= -->
+
+  <section id="seen">
+
+    <div class="section-heading">
+
+      <div class="section-label">
+        REPRESENTATION
+      </div>
+
+      <h2>
+        Who is seen?
+      </h2>
+
+      <p>
+        Representation is not only about counting characters. It is
+        also about whose experiences, ambitions and ways of living
+        become visible.
+      </p>
+
+    </div>
+
+
+    <div class="seen-grid">
+
+      <div class="seen-box">
+
+        <h3>
+          Who appears?
+        </h3>
+
+        <ul class="seen-list">
+
+          <li>Children & young people</li>
+
+          <li>Women and men</li>
+
+          <li>Rural communities</li>
+
+          <li>Urban communities</li>
+
+          <li>Workers and professionals</li>
+
+          <li>Different family structures</li>
+
+        </ul>
+
+        <div class="small-note">
+          Start with what the text actually shows.
+        </div>
+
+      </div>
+
+
+      <div class="seen-box">
+
+        <h3>
+          Who might be missing?
+        </h3>
+
+        <ul class="seen-list">
+
+          <li>Marginalized communities</li>
+
+          <li>Different experiences of childhood</li>
+
+          <li>Children with disabilities</li>
+
+          <li>Linguistic minorities</li>
+
+          <li>Working children</li>
+
+          <li>Different family structures</li>
+
+        </ul>
+
+        <div class="small-note">
+          Absence should be treated as a research question, not an assumption.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       MAP
+  ========================================= -->
+
+  <section class="map-section" id="map">
+
+    <div class="section-heading">
+
+      <div class="section-label">
+        WHERE IS IT TAUGHT?
+      </div>
+
+      <h2>
+        Map the archive.
+      </h2>
+
+      <p>
+        Textbooks are shaped by states, boards, languages and
+        educational systems. The archive will eventually let you
+        explore these differences across India.
+      </p>
+
+    </div>
+
+
+    <div class="map-placeholder">
+
+      <div class="india-word">
+        INDIA
+      </div>
+
+      <div class="map-note">
+        States represented<br>
+        in the archive →
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       BIG QUESTION
+  ========================================= -->
+
+  <section class="question-section">
+
+    <h2>
+      Can every child find a possible version of themselves in what they read?
+    </h2>
+
+    <p>
+      The archive does not assume the answer. It invites us to look
+      closely at the texts, compare them, ask questions and notice
+      what becomes possible through representation.
+    </p>
+
+  </section>
+
+
+  <!-- =========================================
+       FROM THE ARCHIVE
+  ========================================= -->
+
+  <section>
+
+    <div class="section-heading">
+
+      <div class="section-label">
+        FROM THE ARCHIVE
+      </div>
+
+      <h2>
+        Questions worth asking.
+      </h2>
+
+    </div>
+
+
+    <div class="story-grid">
+
+      <article class="story-card">
+
+        <div class="story-number">
+          QUESTION 01
+        </div>
+
+        <h3>
+          What does a "normal" Indian family look like in a textbook?
+        </h3>
+
+        <a href="#">
+          Read the analysis →
+        </a>
+
+      </article>
+
+
+      <article class="story-card">
+
+        <div class="story-number">
+          QUESTION 02
+        </div>
+
+        <h3>
+          When does childhood become labour?
+        </h3>
+
+        <a href="#">
+          Read the analysis →
+        </a>
+
+      </article>
+
+
+      <article class="story-card">
+
+        <div class="story-number">
+          QUESTION 03
+        </div>
+
+        <h3>
+          Who gets to be ambitious?
+        </h3>
+
+        <a href="#">
+          Read the analysis →
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       METHODOLOGY
+  ========================================= -->
+
+  <section class="method">
+
+    <div class="method-grid">
+
+      <div>
+
+        <div class="section-label">
+          ABOUT THE PROJECT
+        </div>
+
+        <h2>
+          This is an archive — and a research project.
+        </h2>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          How will texts be studied?
+        </h3>
+
+        <p>
+          Each text can be examined for its characters, settings,
+          themes, identities, relationships, occupations,
+          aspirations and forms of belonging.
+        </p>
+
+        <p>
+          Rather than assuming that a group is simply "absent",
+          the project distinguishes between what is explicitly
+          represented, what is underrepresented in the sampled
+          material, and what requires further research.
+        </p>
+
+        <ul class="method-list">
+
+          <li>Class and textbook</li>
+
+          <li>Board and state</li>
+
+          <li>Language and subject</li>
+
+          <li>Characters and identities</li>
+
+          <li>Themes and experiences</li>
+
+          <li>Representation and omission</li>
+
+          <li>Questions of identification</li>
+
+          <li>Possibilities and aspirations</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>
+          Who Gets to See Themselves?
+        </h3>
+
+        <p>
+          A digital archive of representation, identity and possibility
+          in Indian school texts.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Explore
+        </h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a href="#explore">Texts</a>
+          </li>
+
+          <li>
+            <a href="#themes">Themes</a>
+          </li>
+
+          <li>
+            <a href="#map">Map</a>
+          </li>
+
+          <li>
+            <a href="#seen">Who Is Seen?</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Project
+        </h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a href="#about">About</a>
+          </li>
+
+          <li>
+            <a href="#">Methodology</a>
+          </li>
+
+          <li>
+            <a href="#">Resources</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 — School Texts Archive. Built as a research and
+      digital humanities project.
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================================
+       JAVASCRIPT
+       Everything is inside this same file.
+  ========================================= -->
+
+  <script>
+
+    /* Mobile menu */
+
+    function toggleMenu() {
+
+      const nav = document.getElementById("navLinks");
+
+      nav.classList.toggle("active");
+
+    }
+
+
+    /* Archive filtering */
+
+    function filterCards() {
+
+      const search =
+        document.getElementById("searchInput").value.toLowerCase();
+
+      const classFilter =
+        document.getElementById("classFilter").value.toLowerCase();
+
+      const boardFilter =
+        document.getElementById("boardFilter").value.toLowerCase();
+
+      const languageFilter =
+        document.getElementById("languageFilter").value.toLowerCase();
+
+      const subjectFilter =
+        document.getElementById("subjectFilter").value.toLowerCase();
+
+      const stateFilter =
+        document.getElementById("stateFilter").value.toLowerCase();
+
+
+      const cards =
+        document.querySelectorAll(".text-card");
+
+
+      let visibleCount = 0;
+
+
+      cards.forEach(function(card) {
+
+        const text =
+          card.getAttribute("data-search").toLowerCase();
+
+
+        const matchesSearch =
+          text.includes(search);
+
+        const matchesClass =
+          !classFilter || text.includes(classFilter);
+
+        const matchesBoard =
+          !boardFilter || text.includes(boardFilter);
+
+        const matchesLanguage =
+          !languageFilter || text.includes(languageFilter);
+
+        const matchesSubject =
+          !subjectFilter || text.includes(subjectFilter);
+
+        const matchesState =
+          !stateFilter || text.includes(stateFilter);
+
+
+        if (
+          matchesSearch &&
+          matchesClass &&
+          matchesBoard &&
+          matchesLanguage &&
+          matchesSubject &&
+          matchesState
+        ) {
+
+          card.style.display = "flex";
+
+          visibleCount++;
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+
+      document.getElementById("archiveCount").innerText =
+        "Showing " + visibleCount + " text" +
+        (visibleCount === 1 ? "" : "s");
+
+    }
+
+
+    /* Close mobile menu when a link is clicked */
+
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+      link.addEventListener("click", function() {
+
+        document
+          .getElementById("navLinks")
+          .classList.remove("active");
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
